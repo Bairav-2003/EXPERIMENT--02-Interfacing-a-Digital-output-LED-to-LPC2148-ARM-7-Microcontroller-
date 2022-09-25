@@ -114,10 +114,41 @@ Step 9: Select the hex file from the Kiel program folder and import the program 
 
 
 ## Kiel - Program for LED blinking ON  and  OFF (blinking)
-
+```
+#include <lpc214x.h>
+void delay_ms(unsigned int count)
+{
+  unsigned int j=0,i=0;
+  for(j=0;j<count;j++)
+  {
+    for(i=0;i<3000;i++);
+  }
+}
+int main() 
+{
+    PINSEL2 = 0x000000;  
+    IO1DIR = 0xffffffff; 
+    while(1)
+    {
+       IO1SET = 0xffffffff;     
+         delay_ms(1000);
+       IO1CLR = 0xffffffff;   
+         delay_ms(1000);
+    }
+}
+```
 ## Output screen shots :
+ ### LED OFF:
+ ![SS11](https://user-images.githubusercontent.com/94154683/192130356-031c1ebd-5bd7-429e-b99f-453374b6c11d.png)
  
-## Result :
+### LED ON:
+![WhatsApp Image 2022-09-25 at 11 20 39 AM](https://user-images.githubusercontent.com/94154683/192130386-54c94aa6-b449-4ea5-9ec9-9e920cbba2d9.jpeg)
+
+### CIRCUIT DIAGRAM:
+## ![SS33](https://user-images.githubusercontent.com/94154683/192130408-98ec2cfe-37fc-4314-87cc-3fb4b24f2e84.png)
+
+
+Result :
 Interfacing a digital output with ARM microcontroller is executed 
 
 
